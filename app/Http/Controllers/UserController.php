@@ -33,6 +33,7 @@ class UserController extends Controller
 
     public function deleteUser($id)
     {
+        $this->authorize('create', User::class);
         $user = User::findorFail($id);
         return $user->delete();        
     }
